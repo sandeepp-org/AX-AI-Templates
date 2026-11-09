@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.base.json",
+  "references": [
+    { "path": "app" },
+    { "path": "packages/util-logger" },
+    { "path": "packages/util-api-server" },
+    { "path": "packages/util-secret-manager-aws" },
+    { "path": "packages/util-mongodb" },
+    { "path": "packages/util-error-normalizer" },
+    { "path": "packages/util-redis" },
+    { "path": "packages/util-jwt-tokens" },
+    { "path": "packages/util-rate-limit-core" },
+    { "path": "packages/util-agentic-memory" },
+    { "path": "packages/util-agent-trace" }
+  ],
+  "include": [],
+  "exclude": ["node_modules", "dist"]
+}

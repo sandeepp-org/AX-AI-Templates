@@ -1,0 +1,45 @@
+{
+  "name": "@util/api-server",
+  "version": "0.0.1",
+  "description": "Zero-boilerplate Express API server with built-in security, error handling, and graceful shutdown",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --build",
+    "dev": "tsc --watch",
+    "test": "jest --config ../../jest.config.cjs --testPathPatterns=\"packages/util-api-server\" --forceExit",
+    "test:watch": "jest --config ../../jest.config.cjs --testPathPatterns=\"packages/util-api-server\" --watch",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "@util/error-normalizer": "workspace:*",
+    "@util/logger": "workspace:*",
+    "@util/rate-limit-core": "workspace:*",
+    "compression": "^1.8.1",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.3.1",
+    "helmet": "^8.1.0",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/compression": "^1.8.1",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.4.0",
+    "@types/swagger-ui-express": "^4.1.8",
+    "jest": "^30.3.0",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "peerDependencies": {}
+}

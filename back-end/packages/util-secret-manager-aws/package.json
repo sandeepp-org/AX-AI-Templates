@@ -1,0 +1,33 @@
+{
+  "name": "@util/secret-manager-aws",
+  "version": "0.0.1",
+  "description": "AWS Secrets Manager provider with singleton pattern. Fetches all secrets from AWS Secrets Manager",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --build",
+    "dev": "tsc --watch",
+    "test": "jest --config ../../jest.config.cjs --testPathPatterns=\"packages/util-secret-manager-aws\" --forceExit",
+    "test:watch": "jest --config ../../jest.config.cjs --testPathPatterns=\"packages/util-secret-manager-aws\" --watch",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.0",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "peerDependencies": {}
+}

@@ -1,0 +1,14 @@
+version: 1
+paths:
+  bootstrap_output_dir: ax-sdd-artifacts/bootstrap
+  bootstrap_output_file: ax-sdd-artifacts/bootstrap/sol-bootstrap-config.yaml
+  explore_output_dir: ax-sdd-artifacts/explore
+  explore_output_glob: ax-sdd-artifacts/explore/explore-*.md
+  explore_source_markdown_dir: ax-sdd-artifacts/explore/source-md
+  proposed_output_dir: ax-sdd-artifacts/specs
+templates:
+  bootstrap_config_template: .cursor/skills/ax-skills-sdd-workflow/templates/sol-bootstrap-config.template.yaml
+  explore_report_template: .cursor/skills/ax-skills-sdd-workflow/templates/explore-report.md
+  atomic_spec_template: .cursor/skills/ax-skills-sdd-workflow/templates/atomic-spec-v1.0.md
+scripts:
+  convert_to_markdown: .cursor/skills/ax-skills-sdd-workflow/scripts/convert_to_markdown.py

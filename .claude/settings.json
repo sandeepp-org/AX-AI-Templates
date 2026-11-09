@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "mcp__azure-devops",
+      "mcp__f16788d7-9158-43ec-b4ae-b33f8477618a"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "azure-devops",
+    "f16788d7-9158-43ec-b4ae-b33f8477618a"
+  ]
+}

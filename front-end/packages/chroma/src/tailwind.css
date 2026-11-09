@@ -1,0 +1,137 @@
+/* =============================================================================
+   Canopy Design System - Tailwind v4 Configuration
+   CSS-first configuration using @theme directive
+   
+   Usage: Import AFTER tailwindcss in your app's globals.css:
+     @import "tailwindcss";
+     @import "@canopy/chroma/preset";
+     @import "@canopy/chroma/themes";
+   ============================================================================= */
+
+/* Theme configuration using CSS custom properties from themes */
+/* Using 'inline' to preserve var() references for runtime theme switching */
+@theme inline {
+    /* Core UI Colors */
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+
+    /* Primary Color - 5 tones */
+    --color-primary-50: var(--primary-50);
+    --color-primary-100: var(--primary-100);
+    --color-primary-500: var(--primary-500);
+    --color-primary-700: var(--primary-700);
+    --color-primary-900: var(--primary-900);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    /* Secondary Color - 5 tones */
+    --color-secondary-50: var(--secondary-50);
+    --color-secondary-100: var(--secondary-100);
+    --color-secondary-500: var(--secondary-500);
+    --color-secondary-700: var(--secondary-700);
+    --color-secondary-900: var(--secondary-900);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    /* Success Color - 5 tones */
+    --color-success-50: var(--success-50);
+    --color-success-100: var(--success-100);
+    --color-success-500: var(--success-500);
+    --color-success-700: var(--success-700);
+    --color-success-900: var(--success-900);
+    --color-success: var(--success);
+    --color-success-foreground: var(--success-foreground);
+
+    /* Warning Color - 5 tones */
+    --color-warning-50: var(--warning-50);
+    --color-warning-100: var(--warning-100);
+    --color-warning-500: var(--warning-500);
+    --color-warning-700: var(--warning-700);
+    --color-warning-900: var(--warning-900);
+    --color-warning: var(--warning);
+    --color-warning-foreground: var(--warning-foreground);
+
+    /* Error Color - 5 tones */
+    --color-error-50: var(--error-50);
+    --color-error-100: var(--error-100);
+    --color-error-500: var(--error-500);
+    --color-error-700: var(--error-700);
+    --color-error-900: var(--error-900);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+
+    /* Info Color - 5 tones */
+    --color-info-50: var(--info-50);
+    --color-info-100: var(--info-100);
+    --color-info-500: var(--info-500);
+    --color-info-700: var(--info-700);
+    --color-info-900: var(--info-900);
+    --color-info: var(--info);
+    --color-info-foreground: var(--info-foreground);
+
+    /* Neutral Color - 5 tones */
+    --color-neutral-50: var(--neutral-50);
+    --color-neutral-100: var(--neutral-100);
+    --color-neutral-500: var(--neutral-500);
+    --color-neutral-700: var(--neutral-700);
+    --color-neutral-900: var(--neutral-900);
+
+    /* Accent */
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    /* Focus Ring */
+    --color-ring: var(--ring);
+
+    /* Spacing - use theme-prefixed names to avoid circular references */
+    --spacing-theme-xs: var(--spacing-xs);
+    --spacing-theme-sm: var(--spacing-sm);
+    --spacing-theme-md: var(--spacing-md);
+    --spacing-theme-lg: var(--spacing-lg);
+    --spacing-theme-xl: var(--spacing-xl);
+    --spacing-theme-2xl: var(--spacing-2xl);
+    --spacing-theme-3xl: var(--spacing-3xl);
+    --spacing-theme-4xl: var(--spacing-4xl);
+    --spacing-theme-5xl: var(--spacing-5xl);
+    --spacing-theme-6xl: var(--spacing-6xl);
+
+    /* Border Radius - use theme-prefixed names to avoid circular references */
+    --radius-theme-sm: var(--radius-sm);
+    --radius-theme-md: var(--radius-md);
+    --radius-theme-lg: var(--radius-lg);
+    --radius-theme-xl: var(--radius-xl);
+    --radius-theme-full: var(--radius-full);
+    --radius-theme: var(--radius);
+
+    /* Shadows - use theme-prefixed names to avoid circular references */
+    --shadow-theme-sm: var(--shadow-sm);
+    --shadow-theme-md: var(--shadow-md);
+    --shadow-theme-lg: var(--shadow-lg);
+
+    /* Interactive Element Heights */
+    --interactive-height-sm: var(--interactive-height-sm);
+    --interactive-height-md: var(--interactive-height-md);
+    --interactive-height-lg: var(--interactive-height-lg);
+
+    /* Font sizes - use theme-prefixed names to avoid circular references */
+    --font-size-theme-xs: var(--font-size-xs);
+    --font-size-theme-sm: var(--font-size-sm);
+    --font-size-theme-base: var(--font-size-base);
+    --font-size-theme-lg: var(--font-size-lg);
+    --font-size-theme-xl: var(--font-size-xl);
+    --font-size-theme-2xl: var(--font-size-2xl);
+    --font-size-theme-3xl: var(--font-size-3xl);
+    --font-size-theme-4xl: var(--font-size-4xl);
+
+    /* Font families - mapped to theme CSS variables */
+    --font-family-sans: var(--font-sans);
+    --font-family-mono: var(--font-mono);
+}

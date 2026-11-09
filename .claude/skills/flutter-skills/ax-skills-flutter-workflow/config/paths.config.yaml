@@ -1,0 +1,22 @@
+version: 1
+paths:
+  bootstrap_output_dir: ax-flutter-sdd-artifacts/bootstrap
+  bootstrap_output_file: ax-flutter-sdd-artifacts/bootstrap/flutter-bootstrap-config.yaml
+  explore_output_dir: ax-flutter-sdd-artifacts/explore
+  explore_output_glob: ax-flutter-sdd-artifacts/explore/explore-*.md
+  explore_source_markdown_dir: ax-flutter-sdd-artifacts/explore/source-md
+  proposed_output_dir: ax-flutter-sdd-artifacts/specs
+  # Layered CLAUDE.md (loaded additively by the agent): root for the big
+  # picture, one per feature for local conventions. These live in the app
+  # tree (not under ax-flutter-sdd-artifacts/) so the agent loads them.
+  root_claude_md: CLAUDE.md
+  feature_claude_md_glob: lib/features/*/CLAUDE.md
+configs:
+  tooling_config: .claude/skills/ax-skills-flutter-workflow/config/tooling.config.yaml
+templates:
+  bootstrap_config_template: .claude/skills/ax-skills-flutter-workflow/templates/flutter-bootstrap-config.template.yaml
+  explore_report_template: .claude/skills/ax-skills-flutter-workflow/templates/explore-report.md
+  atomic_spec_template: .claude/skills/ax-skills-flutter-workflow/templates/atomic-spec-v1.0.md
+  claude_md_template: .claude/skills/ax-skills-flutter-workflow/templates/claude-md.template.md
+scripts:
+  convert_to_markdown: .claude/skills/ax-skills-flutter-workflow/scripts/convert_to_markdown.py

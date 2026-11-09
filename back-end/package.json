@@ -1,0 +1,63 @@
+{
+  "name": "nexus",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "turbo build",
+    "start": "pnpm --filter app start",
+    "dev": "pnpm build && pnpm --filter app dev",
+    "test": "turbo test",
+    "test:watch": "jest --watch",
+    "lint": "turbo lint",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "turbo typecheck",
+    "clean": "turbo clean && rm -rf node_modules",
+    "prepare": "husky",
+    "template:ensure": "bash scripts/template/ensure-workspace-packages.sh",
+    "template:remove": "bash scripts/template/remove-packages.sh",
+    "template:add": "bash scripts/template/add-packages-from-upstream.sh",
+    "template:update": "bash scripts/template/update-packages-from-upstream.sh",
+    "template:pr": "bash scripts/template/contribute-package-pr.sh",
+    "agent:install": "bash agent-system/agent-install.sh --all",
+    "agent:install:all": "bash agent-system/agent-install.sh --all",
+    "agent:install:cursor": "bash agent-system/agent-install.sh --editor cursor",
+    "agent:install:claude": "bash agent-system/agent-install.sh --editor claude",
+    "agent:install:codex": "bash agent-system/agent-install.sh --editor codex",
+    "agent:install:windsurf": "bash agent-system/agent-install.sh --editor windsurf"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.3.3",
+    "@types/supertest": "^7.2.0",
+    "dotenv": "^16.4.7",
+    "eslint": "^10.0.2",
+    "husky": "^9.1.7",
+    "jest": "^30.2.0",
+    "lint-staged": "^16.3.2",
+    "prettier": "^3.8.1",
+    "supertest": "^7.2.2",
+    "ts-jest": "^29.4.6",
+    "turbo": "^2.8.13",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.1"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yaml,yml}": [
+      "prettier --write"
+    ]
+  },
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {},
+  "peerDependencies": {}
+}

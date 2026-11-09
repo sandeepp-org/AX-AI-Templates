@@ -1,0 +1,25 @@
+version: 1
+active_workflow: flutter-spec-driven-development
+defaults:
+  gating:
+    strict_mode: true
+    fail_closed: true
+    reject_placeholder_values: [TBD, N/A, "", null]
+  question_mode:
+    bootstrap: ask_user_for_missing_fields
+    explore: ask_user_for_requirement_gaps
+    propose: ask_user_for_detail_gaps
+  bootstrap:
+    infer_from_codebase_first: true
+    ask_iterative_followups_until_complete: true
+  docs:
+    convert_uploaded_docs_to_markdown: true
+    markdown_staging_subdir: source-md
+  outputs:
+    timestamp_format: "%Y%m%d-%H%M%S"
+  flutter:
+    # Project-wide assumptions baked into templates and gates.
+    state_management: bloc+cubit
+    architecture: feature-first-clean-architecture
+    target_platforms: [web, ios, android]
+    assumed_libraries: [flutter_bloc, go_router, dio, retrofit, freezed, json_serializable, equatable]

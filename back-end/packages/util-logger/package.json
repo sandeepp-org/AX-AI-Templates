@@ -1,0 +1,42 @@
+{
+  "name": "@util/logger",
+  "version": "0.1.0",
+  "description": "Winston-based multi-transport logger (Console, File, MongoDB) with child loggers and per-transport levels",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --build",
+    "dev": "tsc --watch",
+    "test": "jest --config ../../jest.config.cjs --testPathPatterns=\"packages/util-logger\" --forceExit",
+    "test:integration": "jest --config ../../jest.config.cjs --testPathPatterns=\"packages/util-logger\" --testPathPattern=\".*integration.test.ts$\"",
+    "test:watch": "jest --config ../../jest.config.cjs --testPathPatterns=\"packages/util-logger\" --watch",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "winston": "^3.17.0",
+    "winston-mongodb": "^7.0.0"
+  },
+  "peerDependencies": {
+    "mongodb": ">=6.0.0"
+  },
+  "peerDependenciesMeta": {
+    "mongodb": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.0",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

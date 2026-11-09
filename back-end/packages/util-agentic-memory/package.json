@@ -1,0 +1,41 @@
+{
+  "name": "@util/agentic-memory",
+  "version": "0.1.0",
+  "description": "Framework-agnostic long-term memory service for agents with MongoDB default and pluggable adapters",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "dev": "tsc --watch",
+    "test": "JEST_PACKAGE_ENV=util-agentic-memory jest --config ../../jest.config.cjs --testPathPatterns=\"packages/util-agentic-memory\" --forceExit",
+    "test:watch": "JEST_PACKAGE_ENV=util-agentic-memory jest --config ../../jest.config.cjs --testPathPatterns=\"packages/util-agentic-memory\" --watch",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "@util/mongodb": "workspace:*",
+    "mongodb": "^6.21.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.0",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "peerDependencies": {}
+}

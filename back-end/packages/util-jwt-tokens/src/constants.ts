@@ -1,0 +1,23 @@
+const DEFAULT_ACCESS_EXPIRES_IN = "15m";
+const DEFAULT_REFRESH_EXPIRES_IN = "7d";
+const DEFAULT_ALGORITHM = "HS256";
+
+const EMAIL_REGEX =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
+const MIN_PASSWORD_LENGTH = 8;
+
+const REGEX_LOWERCASE = /[a-z]/;
+const REGEX_UPPERCASE = /[A-Z]/;
+const REGEX_DIGIT = /[0-9]/;
+
+export {
+  DEFAULT_ACCESS_EXPIRES_IN,
+  DEFAULT_REFRESH_EXPIRES_IN,
+  DEFAULT_ALGORITHM,
+  EMAIL_REGEX,
+  MIN_PASSWORD_LENGTH,
+  REGEX_LOWERCASE,
+  REGEX_UPPERCASE,
+  REGEX_DIGIT,
+};

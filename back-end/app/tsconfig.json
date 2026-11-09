@@ -1,0 +1,19 @@
+{
+  "extends": "../tsconfig.base.json",
+  "references": [
+    { "path": "../packages/util-logger" },
+    { "path": "../packages/util-api-server" },
+    { "path": "../packages/util-secret-manager-aws" },
+    { "path": "../packages/util-error-normalizer" },
+    { "path": "../packages/util-jwt-tokens" },
+    { "path": "../packages/util-mongodb" },
+    { "path": "../packages/util-redis" }
+  ],
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "composite": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["**/*.test.ts", "node_modules", "dist"]
+}

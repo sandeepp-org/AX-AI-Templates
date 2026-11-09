@@ -1,0 +1,95 @@
+# Flutter workflow schema — steps, sequencing, paths, and machine gates only.
+#
+# Output *shape* (YAML keys, markdown sections, tables) is defined in templates
+# referenced by template_path_key below. Resolve each template_path_key against
+# paths.config.yaml → templates.<key> (do not duplicate field lists here; that
+# drifts from the template).
+#
+version: 1
+paths_config_file: .claude/skills/ax-skills-flutter-workflow/config/paths.config.yaml
+
+workflow:
+  id: flutter-spec-driven-development
+  name: Flutter Spec Driven Development (BLoC + Cubit)
+  description: Three-step gated workflow for bootstrap, explore, and propose, tuned for a multiplatform (web/iOS/Android) Flutter app using BLoC + Cubit and feature-first clean architecture.
+
+  steps:
+    - id: bootstrap
+      required: true
+      outputs:
+        - id: bootstrap_config
+          type: yaml
+          path_key: bootstrap_output_file
+          template_path_key: bootstrap_config_template
+      gate_validation:
+        # Derive required non-empty keys from bootstrap template guidance/comments.
+        derive_required_non_empty_fields_from_template: true
+        require_minimum_fields_for_explore_gate: true
+        required_non_empty_fields_for_explore_gate: [solution_name, scope_overview, actors, tech_stack, target_platforms, state_management]
+        reject_placeholder_values: [TBD, N/A, "", null]
+
+    - id: explore
+      required: true
+      requires_steps: [bootstrap]
+      requires_files:
+        - path_key: bootstrap_output_file
+      outputs:
+        - id: explore_summary
+          type: markdown
+          path_key: explore_output_glob
+          template_path_key: explore_report_template
+      gate_validation:
+        derive_required_non_empty_fields_from_template: true
+        require_minimum_fields_for_explore_gate: true
+        required_non_empty_fields_for_propose_gate:
+          - explore_intent
+          - new_specs_to_propose
+          - existing_specs_changes_and_deletions
+          - feature_modules_and_integration_notes
+          - state_management_design
+          - platform_and_responsiveness_notes
+          - assumptions
+          - high_impact_open_questions
+          - discussion_notes_and_decision_trail
+          - out_of_scope_candidate_ideas
+          - proposal_status
+        reject_placeholder_values: [TBD, N/A, "", null]
+        # Section titles must be derived from explore_report_template H2 headings.
+        require_markdown_h2_from_template: true
+        require_concrete_spec_rows: true
+      behavior:
+        convert_uploaded_docs_to_markdown: true
+        infer_from_codebase: true
+        fail_closed_when_gate_invalid: true
+
+    - id: propose
+      required: true
+      requires_steps: [explore]
+      requires_files:
+        - path_key: explore_output_glob
+      outputs:
+        - id: atomic_specs
+          type: markdown[]
+          path_key: proposed_output_dir
+          template_path_key: atomic_spec_template
+      gate_validation:
+        # Validate selected explore file against explore_report_template H2 headings.
+        required_non_empty_fields_for_completion_gate:
+          - intent
+          - user_scenarios
+          - requirements
+          - change_summary
+          - experience_and_design_constraints
+          - state_management_and_data
+          - technical_boundaries
+          - platform_and_build_targets
+          - success_criteria
+          - important_notes
+          - dependencies
+        require_explore_markdown_h2_from_template: true
+        reject_placeholder_values: [TBD, N/A, "", null]
+        require_concrete_spec_rows: true
+        # Each proposed file must follow atomic_spec_template required H2 headings.
+        require_atomic_spec_markdown_h2_from_template: true
+      behavior:
+        fail_closed_when_gate_invalid: true

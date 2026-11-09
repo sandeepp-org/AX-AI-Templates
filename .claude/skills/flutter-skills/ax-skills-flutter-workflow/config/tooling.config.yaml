@@ -1,0 +1,40 @@
+version: 1
+
+# Central tool-surface config for the Flutter skill suite.
+# Declares the Dart & Flutter MCP server as the preferred way to run the
+# toolchain (analyze, test, format, codegen, pub.dev, symbol/docs lookup,
+# running-app introspection). Skills read this to decide MCP-vs-CLI.
+#
+# Why the MCP server: it returns structured diagnostics and exposes the
+# running app (widget tree, live runtime errors) instead of raw CLI text,
+# which gives coding agents an immediate, machine-readable feedback loop to
+# self-correct. CLI remains the fallback when the server is not registered.
+
+dart_mcp:
+  # Whether the suite should prefer the Dart & Flutter MCP server over raw CLI.
+  enabled: true
+  # When true, skills call the MCP tool first and fall back to the CLI command
+  # only if the server is unavailable. When false, skills use the CLI directly.
+  prefer_over_cli: true
+  # One-time registration in the consuming repo (requires Dart 3.9+):
+  #   claude mcp add --transport stdio dart -- dart mcp-server
+  server_command: "dart mcp-server"
+  min_dart_sdk: "3.9.0"
+
+  # MCP capability -> the CLI command it replaces (fallback). Skills name the
+  # capability; this table is the canonical mapping.
+  capabilities:
+    analyze:            "flutter analyze"          # static diagnostics (structured)
+    run_tests:          "flutter test"             # unit/widget/bloc tests
+    format:             "dart format ."            # formatting
+    codegen:            "dart run build_runner build --delete-conflicting-outputs"
+    pub_search:         "flutter pub search"       # discover packages on pub.dev
+    pub_add:            "flutter pub add"           # manage pubspec dependencies
+    resolve_symbol:     null                        # docs/signature lookup — no CLI equivalent
+    runtime_introspect: null                        # running-app widget tree + live errors — no CLI equivalent
+
+  # Capabilities with no CLI fallback (MCP-only). If the server is not
+  # registered, skills must say so rather than silently skipping these.
+  mcp_only:
+    - resolve_symbol
+    - runtime_introspect

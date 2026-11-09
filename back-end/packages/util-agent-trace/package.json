@@ -1,0 +1,54 @@
+{
+  "name": "@util/agent-trace",
+  "version": "0.1.0",
+  "description": "Lightweight, framework-agnostic observability SDK for LLM agents — OpenTelemetry spans, OTLP export, optional LangSmith sync",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "dev": "tsc --watch",
+    "test": "JEST_PACKAGE_ENV=util-agent-trace jest --config ../../jest.config.cjs --testPathPatterns=\"packages/util-agent-trace\" --forceExit",
+    "test:watch": "JEST_PACKAGE_ENV=util-agent-trace jest --config ../../jest.config.cjs --testPathPatterns=\"packages/util-agent-trace\" --watch",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/core": "^1.30.0",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.57.0",
+    "@opentelemetry/resources": "^1.30.0",
+    "@opentelemetry/sdk-trace-base": "^1.30.0",
+    "@opentelemetry/sdk-trace-node": "^1.30.0",
+    "@opentelemetry/semantic-conventions": "^1.28.0",
+    "zod": "^3.25.0"
+  },
+  "peerDependencies": {
+    "langsmith": "^0.3.0"
+  },
+  "peerDependenciesMeta": {
+    "langsmith": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.0",
+    "jest": "^30.2.0",
+    "langsmith": "^0.3.0",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

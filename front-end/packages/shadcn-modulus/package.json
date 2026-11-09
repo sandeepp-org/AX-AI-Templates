@@ -1,0 +1,74 @@
+{
+  "name": "@canopy/shadcn-modulus",
+  "version": "0.0.13",
+  "description": "Canopy Design System React Layer - Brand wrappers for Shadcn components",
+  "license": "MIT",
+  "author": "Canopy",
+  "files": [
+    "dist",
+    "src/styles"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./components": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.mjs",
+      "require": "./dist/components/index.js"
+    },
+    "./providers": {
+      "types": "./dist/providers/index.d.ts",
+      "import": "./dist/providers/index.mjs",
+      "require": "./dist/providers/index.js"
+    },
+    "./hooks": {
+      "types": "./dist/hooks/index.d.ts",
+      "import": "./dist/hooks/index.mjs",
+      "require": "./dist/hooks/index.js"
+    },
+    "./styles.css": "./dist/css/styles.css",
+    "./styles/": "./src/styles/"
+  },
+  "dependencies": {
+    "@canopy/chroma": "workspace:*",
+    "@canopy/shadcn-core": "workspace:*",
+    "@tanstack/react-table": "^8.21.3",
+    "date-fns": "^4.1.0"
+  },
+  "peerDependencies": {
+    "@radix-ui/react-slot": "*",
+    "class-variance-authority": "*",
+    "clsx": "*",
+    "lucide-react": "*",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "tailwind-merge": "*",
+    "tailwindcss": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.2",
+    "@types/react": "^19.2.1",
+    "@types/react-dom": "^19.2.1",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "sass": "^1.94.2",
+    "tailwind-merge": "^2.2.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.0"
+  },
+  "scripts": {
+    "prebuild": "pnpm --filter @canopy/shadcn-core build",
+    "build": "pnpm exec tsup",
+    "dev": "pnpm exec tsup --watch",
+    "clean": "rm -rf dist"
+  }
+}

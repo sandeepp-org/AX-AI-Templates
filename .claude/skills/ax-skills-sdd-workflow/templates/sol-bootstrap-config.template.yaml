@@ -1,0 +1,42 @@
+# Bootstrap config template — source of truth for bootstrap output keys.
+
+# --- Workflow identifiers (not in sol-bootsrap.json; required for explore/propose gates) ---
+solution_name: ""
+
+# --- Q00001 Scope Overview ---
+scope_overview: "" # paragraph, max ~100 words
+
+# --- Q00002 Objectives ---
+objectives: [] # list: each item one objective / driver / pain point
+
+# --- Q00003 Key Actors/Stakeholders ---
+actors: [] # list: roles or stakeholder groups (maps to explore gate `actors`)
+
+# --- Q00004 Industry and Vertical ---
+industry: ""
+vertical: ""
+
+# --- Q00005 Solution Perspective ---
+solution_perspective: "" # paragraph, max ~100 words
+
+# --- Q00006 Architectural Goals and Objectives ---
+architectural_goals: [] # list: NFR / architecture goals
+
+# --- Q00007 Architectural Constraints and Limitations ---
+architectural_constraints: [] # list: env, budget, time, regulatory, tech restrictions
+
+# --- Q00008 Assumptions and Dependencies ---
+assumptions_dependencies: [] # list: assumptions and external/internal dependencies
+
+# --- Q00009 Apps and Technical Stack ---
+tech_stack: [] # list: languages, frameworks, DB, cloud, OS per app (maps to explore gate `tech_stack`)
+# Optional: per-app breakdown later; keep as list of strings for gate validation
+# apps_technical_stack: []
+
+# --- Q00010 Additional Information ---
+additional_information: [] # list: anything else material to the solution
+
+# --- Optional legacy / success tracking (fill if you use them downstream) ---
+constraints: [] # may duplicate or subset of architectural_constraints for tooling
+assumptions: [] # may duplicate subset of assumptions_dependencies
+success_metrics: []

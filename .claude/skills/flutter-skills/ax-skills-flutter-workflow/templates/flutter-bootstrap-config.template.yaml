@@ -1,0 +1,63 @@
+# Flutter bootstrap config template — source of truth for bootstrap output keys.
+# Tuned for a multiplatform (web / iOS / Android) Flutter app using BLoC + Cubit.
+
+# --- Workflow identifiers (required for explore/propose gates) ---
+solution_name: ""
+
+# --- Q00001 Scope Overview ---
+scope_overview: "" # paragraph, max ~100 words
+
+# --- Q00002 Objectives ---
+objectives: [] # list: each item one objective / driver / pain point
+
+# --- Q00003 Key Actors/Stakeholders ---
+actors: [] # list: end users, roles, internal services (maps to explore gate `actors`)
+
+# --- Q00004 Industry and Vertical ---
+industry: ""
+vertical: ""
+
+# --- Q00005 Solution Perspective ---
+solution_perspective: "" # paragraph, max ~100 words
+
+# --- Q00006 Architectural Goals and Objectives ---
+architectural_goals: [] # list: NFR / architecture goals (offline support, perf budgets, a11y, etc.)
+
+# --- Q00007 Architectural Constraints and Limitations ---
+architectural_constraints: [] # list: env, budget, time, regulatory, store-policy, device/browser support
+
+# --- Q00008 Assumptions and Dependencies ---
+assumptions_dependencies: [] # list: assumptions and external/internal dependencies (APIs, SDKs, backends)
+
+# --- Q00009 Apps and Technical Stack ---
+tech_stack: [] # list: Flutter/Dart SDK versions, libraries, backend, DB, cloud (maps to explore gate `tech_stack`)
+# Example items: "Flutter 3.x / Dart 3.x", "flutter_bloc", "go_router", "dio + retrofit",
+# "freezed + json_serializable", "REST/GraphQL backend", "Firebase/Supabase", "CI: Codemagic/GitHub Actions"
+
+# --- Q00010 Flutter platform targets (required for explore gate) ---
+target_platforms: [] # subset of [web, ios, android]; record min OS / browser support where known
+
+# --- Q00011 State management approach (required for explore gate) ---
+state_management: "" # e.g. "BLoC + Cubit (flutter_bloc)"; note where BLoC (events) vs Cubit (methods) is preferred
+
+# --- Q00012 Architecture & module layout ---
+architecture_style: "" # e.g. "feature-first clean architecture: lib/features/<feature>/{data,domain,presentation} + lib/core"
+key_feature_modules: [] # list: planned/existing feature folders under lib/features (auth, home, profile, ...)
+
+# --- Q00013 Cross-cutting concerns ---
+navigation_strategy: "" # e.g. "go_router with typed routes, deep links, web URL strategy (path-based)"
+dependency_injection: "" # e.g. "RepositoryProvider/BlocProvider + constructor injection" or named DI lib
+networking_and_data: [] # list: API style, auth (token/OAuth), caching, local storage (hive/shared_preferences/secure_storage)
+theming_and_design_system: "" # e.g. "Material 3, design tokens, responsive breakpoints, Figma source"
+
+# --- Q00014 Quality and tooling ---
+testing_strategy: [] # list: unit (bloc_test), widget, golden, integration_test; coverage targets
+ci_cd_and_release: [] # list: build/release pipeline per platform (web hosting, TestFlight, Play Console)
+
+# --- Q00015 Additional Information ---
+additional_information: [] # list: anything else material to the solution
+
+# --- Optional legacy / success tracking (fill if you use them downstream) ---
+constraints: [] # may duplicate or subset of architectural_constraints for tooling
+assumptions: [] # may duplicate subset of assumptions_dependencies
+success_metrics: []

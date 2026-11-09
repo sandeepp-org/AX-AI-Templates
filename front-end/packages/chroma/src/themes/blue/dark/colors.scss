@@ -1,0 +1,98 @@
+// =============================================================================
+// Aatmix Design System - Blue Dark Theme Colors
+// =============================================================================
+
+@mixin colors {
+  // Core UI
+  --background: hsl(210 30% 2%);
+  --foreground: hsl(210 15% 98%);
+  --muted: hsl(210 12% 15%);
+  --muted-foreground: hsl(210 6% 65%);
+  --popover: hsl(210 30% 2%);
+  --popover-foreground: hsl(210 15% 98%);
+  --card: hsl(210 25% 3%);
+  --card-foreground: hsl(0 0% 100%);
+  --border: hsl(210 10% 12%);
+  --input: hsl(210 10% 12%);
+
+  // Primary Color - 5 tones
+  --primary-50: hsl(210 90% 96%);
+  --primary-100: hsl(210 85% 88%);
+  --primary-500: hsl(210 80% 55%);
+  --primary-700: hsl(210 75% 38%);
+  --primary-900: hsl(210 70% 22%);
+  --primary: var(--primary-500);
+  --primary-foreground: hsl(0 0% 100%);
+
+  // Secondary Color - 5 tones
+  --secondary-50: hsl(210 40% 97%);
+  --secondary-100: hsl(210 25% 93%);
+  --secondary-500: hsl(210 12% 15%);
+  --secondary-700: hsl(210 15% 8%);
+  --secondary-900: hsl(210 18% 3%);
+  --secondary: var(--secondary-500);
+  --secondary-foreground: hsl(210 12% 75%);
+
+  // Success Color - 5 tones
+  --success-50: hsl(142 80% 95%);
+  --success-100: hsl(142 75% 85%);
+  --success-500: hsl(142 71% 45%);
+  --success-700: hsl(142 68% 32%);
+  --success-900: hsl(142 65% 18%);
+  --success: var(--success-500);
+  --success-foreground: hsl(0 0% 100%);
+
+  // Warning Color - 5 tones
+  --warning-50: hsl(38 100% 96%);
+  --warning-100: hsl(38 95% 88%);
+  --warning-500: hsl(38 92% 50%);
+  --warning-700: hsl(38 90% 35%);
+  --warning-900: hsl(38 85% 18%);
+  --warning: var(--warning-500);
+  --warning-foreground: hsl(0 0% 0%);
+
+  // Error Color - 5 tones
+  --error-50: hsl(9 100% 96%);
+  --error-100: hsl(9 95% 88%);
+  --error-500: hsl(9 92% 54%);
+  --error-700: hsl(9 90% 38%);
+  --error-900: hsl(9 85% 22%);
+  --destructive: var(--error-500);
+  --destructive-foreground: hsl(0 0% 100%);
+
+  // Info Color - 5 tones
+  --info-50: hsl(199 100% 96%);
+  --info-100: hsl(199 95% 88%);
+  --info-500: hsl(199 89% 48%);
+  --info-700: hsl(199 85% 35%);
+  --info-900: hsl(199 80% 18%);
+  --info: var(--info-500);
+  --info-foreground: hsl(0 0% 100%);
+
+  // Neutral Color - 5 tones
+  --neutral-50: hsl(210 40% 98%);
+  --neutral-100: hsl(210 20% 95%);
+  --neutral-500: hsl(210 12% 60%);
+  --neutral-700: hsl(210 10% 40%);
+  --neutral-900: hsl(210 8% 15%);
+
+  // Accent (alias for secondary)
+  --accent: var(--secondary-500);
+  --accent-foreground: hsl(210 12% 75%);
+
+  // Focus Ring
+  --ring: var(--primary-500);
+
+  // Status Colors
+  --status-pending: hsl(210 80% 55%);
+  --status-active: hsl(142 71% 45%);
+  --status-inactive: hsl(210 12% 75%);
+  --status-processing: hsl(38 92% 50%);
+
+  // Data Visualization Colors
+  --color-data-1: hsl(210 80% 55%);
+  --color-data-2: hsl(142 71% 45%);
+  --color-data-3: hsl(38 92% 50%);
+  --color-data-4: hsl(9 92% 54%);
+  --color-data-5: hsl(199 89% 48%);
+}
