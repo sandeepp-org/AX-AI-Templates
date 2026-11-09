@@ -8,7 +8,7 @@ module.exports = {
   testMatch: ["**/*.test.ts"],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
   transform: {
-    "^.+\\.tsx?$": [
+    "^.+\\.[tj]sx?$": [
       "ts-jest",
       {
         useESM: false,
@@ -20,8 +20,7 @@ module.exports = {
   moduleNameMapper: {
     "^(\\.{1,2}/.*)\\.js$": "$1",
     "^@util/logger$": "<rootDir>/packages/util-logger/src/index.ts",
-    "^@util/api-server$":
-      "<rootDir>/packages/util-api-server/src/index.ts",
+    "^@util/api-server$": "<rootDir>/packages/util-api-server/src/index.ts",
     "^@util/secret-manager-aws$":
       "<rootDir>/packages/util-secret-manager-aws/src/index.ts",
     "^@util/mongodb$": "<rootDir>/packages/util-mongodb/src/index.ts",
@@ -31,16 +30,11 @@ module.exports = {
       "<rootDir>/packages/util-rate-limit-core/src/index.ts",
     "^@util/error-normalizer$":
       "<rootDir>/packages/util-error-normalizer/src/index.ts",
-    "^@util/agentic-memory$":
-      "<rootDir>/packages/util-agentic-memory/src/index.ts",
-    "^@util/agent-trace$":
-      "<rootDir>/packages/util-agent-trace/src/index.ts",
   },
-  transformIgnorePatterns: ["/node_modules/"],
-  testPathIgnorePatterns: [
-    "/node_modules/",
-    "/dist/",
-    "integration.test.ts",
+  // jose ships ES modules only; it is the one dependency Jest has to transform.
+  transformIgnorePatterns: [
+    "/node_modules/(?!(\\.pnpm/[^/]+/node_modules/)?jose/)",
   ],
+  testPathIgnorePatterns: ["/node_modules/", "/dist/", "integration.test.ts"],
   testTimeout: 10000,
 };

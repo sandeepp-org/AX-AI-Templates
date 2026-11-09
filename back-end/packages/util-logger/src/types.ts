@@ -25,9 +25,7 @@ type FileTransportConfig = {
 };
 
 type TransportConfig =
-  | ConsoleTransportConfig
-  | MongoTransportConfig
-  | FileTransportConfig;
+  ConsoleTransportConfig | MongoTransportConfig | FileTransportConfig;
 
 type LoggerConfig = {
   level?: LogLevel;

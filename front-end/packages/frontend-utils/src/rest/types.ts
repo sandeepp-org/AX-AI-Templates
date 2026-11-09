@@ -1,4 +1,4 @@
-import type { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
+import type { AxiosRequestConfig, AxiosResponse, AxiosError } from "axios";
 
 /**
  * REST Client configuration
@@ -26,7 +26,7 @@ export class RestClientError extends Error {
     public originalError?: unknown
   ) {
     super(message);
-    this.name = 'RestClientError';
+    this.name = "RestClientError";
   }
 }
 
@@ -42,11 +42,15 @@ export interface IRestClient {
   setAuthToken(token: string): void;
   removeAuthToken(): void;
   addRequestInterceptor(
-    onFulfilled?: (config: AxiosRequestConfig) => AxiosRequestConfig | Promise<AxiosRequestConfig>,
+    onFulfilled?: (
+      config: AxiosRequestConfig
+    ) => AxiosRequestConfig | Promise<AxiosRequestConfig>,
     onRejected?: (error: unknown) => unknown
   ): number;
   addResponseInterceptor(
-    onFulfilled?: (response: AxiosResponse) => AxiosResponse | Promise<AxiosResponse>,
+    onFulfilled?: (
+      response: AxiosResponse
+    ) => AxiosResponse | Promise<AxiosResponse>,
     onRejected?: (error: AxiosError) => unknown
   ): number;
   removeInterceptor(id: number): void;

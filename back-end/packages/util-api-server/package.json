@@ -21,25 +21,24 @@
     "@util/error-normalizer": "workspace:*",
     "@util/logger": "workspace:*",
     "@util/rate-limit-core": "workspace:*",
-    "compression": "^1.8.1",
+    "compression": "^1.8.2",
     "cors": "^2.8.6",
-    "express": "^5.2.1",
-    "express-rate-limit": "^8.3.1",
-    "helmet": "^8.1.0",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.3",
+    "helmet": "^8.3.0",
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "@types/compression": "^1.8.1",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
-    "@types/node": "^25.4.0",
+    "@types/node": "^26.6.6",
     "@types/swagger-ui-express": "^4.1.8",
-    "jest": "^30.3.0",
-    "ts-jest": "^29.4.6",
-    "typescript": "^5.9.3"
+    "jest": "^30.5.2",
+    "ts-jest": "^29.4.15",
+    "typescript": "^6.0.3"
   },
   "engines": {
     "node": ">=22.0.0"
-  },
-  "peerDependencies": {}
+  }
 }

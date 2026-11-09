@@ -1,74 +1,42 @@
 {
   "name": "@canopy/shadcn-modulus",
-  "version": "0.0.13",
-  "description": "Canopy Design System React Layer - Brand wrappers for Shadcn components",
-  "license": "MIT",
-  "author": "Canopy",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Branded components: shadcn-core components wired to the chroma tokens",
+  "type": "module",
   "files": [
-    "dist",
-    "src/styles"
+    "dist"
   ],
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
-    },
-    "./components": {
-      "types": "./dist/components/index.d.ts",
-      "import": "./dist/components/index.mjs",
-      "require": "./dist/components/index.js"
-    },
-    "./providers": {
-      "types": "./dist/providers/index.d.ts",
-      "import": "./dist/providers/index.mjs",
-      "require": "./dist/providers/index.js"
-    },
-    "./hooks": {
-      "types": "./dist/hooks/index.d.ts",
-      "import": "./dist/hooks/index.mjs",
-      "require": "./dist/hooks/index.js"
-    },
-    "./styles.css": "./dist/css/styles.css",
-    "./styles/": "./src/styles/"
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo"
   },
   "dependencies": {
     "@canopy/chroma": "workspace:*",
-    "@canopy/shadcn-core": "workspace:*",
-    "@tanstack/react-table": "^8.21.3",
-    "date-fns": "^4.1.0"
+    "@canopy/shadcn-core": "workspace:*"
   },
   "peerDependencies": {
-    "@radix-ui/react-slot": "*",
-    "class-variance-authority": "*",
-    "clsx": "*",
-    "lucide-react": "*",
-    "react": "^19.2.1",
-    "react-dom": "^19.2.1",
-    "tailwind-merge": "*",
-    "tailwindcss": "*"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0"
   },
   "devDependencies": {
-    "@types/node": "^24.10.2",
-    "@types/react": "^19.2.1",
-    "@types/react-dom": "^19.2.1",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.0",
-    "lucide-react": "^0.468.0",
-    "react": "^19.2.1",
-    "react-dom": "^19.2.1",
-    "sass": "^1.94.2",
-    "tailwind-merge": "^2.2.0",
-    "tsup": "^8.5.0",
-    "typescript": "^5.9.0"
-  },
-  "scripts": {
-    "prebuild": "pnpm --filter @canopy/shadcn-core build",
-    "build": "pnpm exec tsup",
-    "dev": "pnpm exec tsup --watch",
-    "clean": "rm -rf dist"
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tsup": "^9.0.0",
+    "typescript": "^6.0.3"
   }
 }

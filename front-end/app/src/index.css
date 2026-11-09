@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@import "@canopy/chroma/tailwind";
+@import "@canopy/chroma/themes";
+
+/* Tailwind does not scan node_modules, so the workspace packages whose components carry classes are named here. */
+@source "../../packages/shadcn-core/src";
+@source "../../packages/shadcn-modulus/src";

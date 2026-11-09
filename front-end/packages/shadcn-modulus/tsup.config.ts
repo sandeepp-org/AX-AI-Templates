@@ -1,40 +1,17 @@
-import { defineConfig } from 'tsup';
-import { existsSync, mkdirSync, writeFileSync } from 'fs';
-import { resolve } from 'path';
-import { compile } from 'sass';
+import { defineConfig } from "tsup";
 
 export default defineConfig({
-  entry: [
-    'src/index.ts',
-    'src/components/index.ts',
-    'src/providers/index.ts',
-    'src/hooks/index.ts'
-  ],
+  entry: { index: "src/index.ts" },
   external: [
     "react",
     "react-dom",
-    "@canopy/shadcn-core",
+    "react/jsx-runtime",
     "@canopy/chroma",
-    "@radix-ui/react-slot",
-    "class-variance-authority",
-    "clsx",
-    "tailwind-merge",
-    "tailwindcss"
+    "@canopy/shadcn-core",
   ],
-  format: ['cjs', 'esm'],
+  format: ["esm"],
   dts: true,
-  splitting: false,
-  sourcemap: true,
   clean: true,
+  sourcemap: true,
   treeshake: true,
-  onSuccess: async () => {
-    mkdirSync(resolve('dist/css'), { recursive: true });
-    const bundlePath = resolve('src/styles/bundle.scss');
-    if (existsSync(bundlePath)) {
-      const result = compile(bundlePath);
-      writeFileSync(resolve('dist/css/styles.css'), result.css);
-    }
-  },
 });
-
-

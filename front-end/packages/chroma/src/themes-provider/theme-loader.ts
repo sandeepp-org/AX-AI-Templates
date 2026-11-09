@@ -2,17 +2,21 @@
  * Theme utilities for managing theme state
  */
 
-export type ColorTheme = 'blue';
-export type ThemeMode = 'light' | 'dark';
+export type ColorTheme = "blue";
+export type ThemeMode = "light" | "dark";
 
 export const COLOR_THEMES = [
-  { value: 'blue', label: 'Blue', emoji: '🔵' },
-] as const satisfies ReadonlyArray<{ value: ColorTheme; label: string; emoji: string }>;
+  { value: "blue", label: "Blue", emoji: "🔵" },
+] as const satisfies ReadonlyArray<{
+  value: ColorTheme;
+  label: string;
+  emoji: string;
+}>;
 
 export type ColorThemeOption = (typeof COLOR_THEMES)[number];
 
 // Memoized set for O(1) color theme validation
-const COLOR_THEME_SET = new Set<string>(COLOR_THEMES.map(t => t.value));
+const COLOR_THEME_SET = new Set<string>(COLOR_THEMES.map((t) => t.value));
 
 function isColorTheme(value: string | null): value is ColorTheme {
   return value !== null && COLOR_THEME_SET.has(value);
@@ -35,23 +39,32 @@ export function getAvailableColorThemes(): ReadonlyArray<ColorThemeOption> {
 }
 
 export function applyColorTheme(theme: ColorTheme): void {
-  if (typeof window === 'undefined') return;
-  window.document.documentElement.setAttribute('data-theme', theme);
+  if (typeof window === "undefined") return;
+  window.document.documentElement.setAttribute("data-theme", theme);
 }
 
-export function initializeColorTheme(storageKey = 'sf-color-theme', defaultTheme: ColorTheme = 'blue'): ColorTheme {
-  if (typeof window === 'undefined') return defaultTheme;
+export function initializeColorTheme(
+  storageKey = "sf-color-theme",
+  defaultTheme: ColorTheme = "blue"
+): ColorTheme {
+  if (typeof window === "undefined") return defaultTheme;
 
   const stored = safeLocalStorage(storageKey);
-  const fromDom = window.document.documentElement.getAttribute('data-theme');
+  const fromDom = window.document.documentElement.getAttribute("data-theme");
 
-  const theme = (isColorTheme(stored) && stored) || (isColorTheme(fromDom) && fromDom) || defaultTheme;
+  const theme =
+    (isColorTheme(stored) && stored) ||
+    (isColorTheme(fromDom) && fromDom) ||
+    defaultTheme;
   applyColorTheme(theme);
   return theme;
 }
 
-export function setColorTheme(theme: ColorTheme, storageKey = 'sf-color-theme'): void {
-  if (typeof window === 'undefined') return;
+export function setColorTheme(
+  theme: ColorTheme,
+  storageKey = "sf-color-theme"
+): void {
+  if (typeof window === "undefined") return;
   safeLocalStorage(storageKey, theme);
   applyColorTheme(theme);
 }
@@ -60,9 +73,9 @@ export function setColorTheme(theme: ColorTheme, storageKey = 'sf-color-theme'):
  * Get the current resolved theme from DOM
  * @returns 'light' or 'dark' (never 'system')
  */
-export function getResolvedTheme(): 'light' | 'dark' {
-  if (typeof window === 'undefined') return 'light';
+export function getResolvedTheme(): "light" | "dark" {
+  if (typeof window === "undefined") return "light";
 
   const root = window.document.documentElement;
-  return root.classList.contains('dark') ? 'dark' : 'light';
+  return root.classList.contains("dark") ? "dark" : "light";
 }

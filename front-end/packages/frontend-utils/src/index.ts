@@ -1,11 +1,16 @@
 // REST Client exports
-export type { IRestClientConfig, IRestClient, IRequestConfig, RestClientError } from './rest/index.js';
+export type {
+  IRestClientConfig,
+  IRestClient,
+  IRequestConfig,
+  RestClientError,
+} from "./rest/index";
 export {
   getSharedRestClient,
   setSharedAuthToken,
   clearSharedAuthToken,
   resetSharedRestClients,
-} from './rest/index';
+} from "./rest/index";
 
 // Upload utilities
 export {
@@ -19,11 +24,11 @@ export {
   ensurePdfExtension,
   validatePdfFiles,
   cleanObjectPrefix,
-} from './utils/pdfUtils';
+} from "./utils/pdfUtils";
 
 export {
   getSignedUploadInstructions,
   uploadFileToSignedUrl,
   extractErrorMessage,
   type SignedUploadRequestOptions,
-} from './utils/gcsUploads';
+} from "./utils/gcsUploads";

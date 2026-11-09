@@ -2,14 +2,16 @@ import axios, {
   type AxiosInstance,
   type AxiosRequestConfig,
   type AxiosError,
-} from 'axios';
+} from "axios";
 import type {
   IRestClientConfig,
   IRestClient,
   IRequestConfig,
-} from './types.js';
+} from "./types.js";
+import { RestClientError } from "./types.js";
 
-const DEFAULT_TIMEOUT = Number(process.env.REST_CLIENT_TIMEOUT ?? 30_000);
+/** How long a request may take when the client's config gives no timeout, in milliseconds. */
+const DEFAULT_TIMEOUT = 30_000;
 
 /**
  * Simple REST client implementation for frontend
@@ -26,7 +28,7 @@ class RestClient implements IRestClient {
     this.baseURL = config.baseURL;
     this.timeout = config.timeout ?? DEFAULT_TIMEOUT;
     this.headers = {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       ...config.headers,
     };
 
@@ -40,7 +42,7 @@ class RestClient implements IRestClient {
   private getHeaders(): Record<string, string> {
     const headers = { ...this.headers };
     if (this.authToken) {
-      headers['Authorization'] = `Bearer ${this.authToken}`;
+      headers["Authorization"] = `Bearer ${this.authToken}`;
     }
     return headers;
   }
@@ -71,20 +73,16 @@ class RestClient implements IRestClient {
     } catch (error) {
       const axiosError = error as AxiosError;
       const statusCode = axiosError.response?.status;
-      const message = axiosError.message || 'Request failed';
+      const message = axiosError.message || "Request failed";
 
-      const restClientError = new (await import('./types.js')).RestClientError(
-        message,
-        statusCode,
-        error
-      );
+      const restClientError = new RestClientError(message, statusCode, error);
 
       throw restClientError;
     }
   }
 
   async get<T>(path: string, config?: IRequestConfig): Promise<T> {
-    return this.request<T>('GET', path, null, config);
+    return this.request<T>("GET", path, null, config);
   }
 
   async post<T>(
@@ -92,7 +90,7 @@ class RestClient implements IRestClient {
     data?: unknown,
     config?: IRequestConfig
   ): Promise<T> {
-    return this.request<T>('POST', path, data, config);
+    return this.request<T>("POST", path, data, config);
   }
 
   async put<T>(
@@ -100,7 +98,7 @@ class RestClient implements IRestClient {
     data?: unknown,
     config?: IRequestConfig
   ): Promise<T> {
-    return this.request<T>('PUT', path, data, config);
+    return this.request<T>("PUT", path, data, config);
   }
 
   async patch<T>(
@@ -108,11 +106,11 @@ class RestClient implements IRestClient {
     data?: unknown,
     config?: IRequestConfig
   ): Promise<T> {
-    return this.request<T>('PATCH', path, data, config);
+    return this.request<T>("PATCH", path, data, config);
   }
 
   async delete<T>(path: string, config?: IRequestConfig): Promise<T> {
-    return this.request<T>('DELETE', path, undefined, config);
+    return this.request<T>("DELETE", path, undefined, config);
   }
 
   setAuthToken(token: string): void {
@@ -125,10 +123,10 @@ class RestClient implements IRestClient {
 
   addRequestInterceptor(
     onFulfilled?: (
-      config: import('axios').InternalAxiosRequestConfig
+      config: import("axios").InternalAxiosRequestConfig
     ) =>
-      | import('axios').InternalAxiosRequestConfig
-      | Promise<import('axios').InternalAxiosRequestConfig>,
+      | import("axios").InternalAxiosRequestConfig
+      | Promise<import("axios").InternalAxiosRequestConfig>,
     onRejected?: (error: unknown) => unknown
   ): number {
     const id = this.axiosInstance.interceptors.request.use(
@@ -141,8 +139,8 @@ class RestClient implements IRestClient {
 
   addResponseInterceptor(
     onFulfilled?: (
-      response: import('axios').AxiosResponse
-    ) => import('axios').AxiosResponse | Promise<import('axios').AxiosResponse>,
+      response: import("axios").AxiosResponse
+    ) => import("axios").AxiosResponse | Promise<import("axios").AxiosResponse>,
     onRejected?: (error: AxiosError) => unknown
   ): number {
     const id = this.axiosInstance.interceptors.response.use(

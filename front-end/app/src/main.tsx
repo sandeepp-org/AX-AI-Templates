@@ -1,13 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import './app/index.scss';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 
-const rootElement = document.getElementById('root');
-if (rootElement) {
-  ReactDOM.createRoot(rootElement).render(
-  <React.StrictMode>
-    <App />
-    </React.StrictMode>,
-  );
+import { App } from "./App";
+import "./index.css";
+
+const rootElement = document.getElementById("root");
+if (rootElement === null) {
+  throw new Error('index.html has no element with id "root"');
 }
+
+createRoot(rootElement).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);

@@ -537,7 +537,3 @@ pnpm test
 ```
 
 Tests use real HTTP servers on random ports with real `fetch` requests (zero mocking).
-
-## Monorepo template sync
-
-From the repository root, use `pnpm template:ensure`, `template:add`, `template:update`, or `template:pr` (see root `package.json`) to pull packages from upstream or open a PR with `packages/*` changes.

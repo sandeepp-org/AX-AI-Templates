@@ -6,7 +6,7 @@ const hashPassword = async (
   plain: string,
   options?: HashPasswordOptions
 ): Promise<string> => {
-  const opts: argon2.Options = {};
+  const opts: argon2.HashOptions = {};
   if (options?.memoryCost !== undefined) {
     opts.memoryCost = options.memoryCost;
   }

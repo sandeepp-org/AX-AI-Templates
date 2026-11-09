@@ -19,8 +19,8 @@
     "clean": "rm -rf dist *.tsbuildinfo"
   },
   "dependencies": {
-    "winston": "^3.17.0",
-    "winston-mongodb": "^7.0.0"
+    "winston": "^3.19.0",
+    "winston-mongodb": "^7.0.1"
   },
   "peerDependencies": {
     "mongodb": ">=6.0.0"
@@ -31,10 +31,10 @@
     }
   },
   "devDependencies": {
-    "@types/node": "^25.0.0",
-    "jest": "^30.2.0",
-    "ts-jest": "^29.4.6",
-    "typescript": "^5.9.0"
+    "@types/node": "^26.6.6",
+    "jest": "^30.5.2",
+    "ts-jest": "^29.4.15",
+    "typescript": "^6.0.3"
   },
   "engines": {
     "node": ">=22.0.0"

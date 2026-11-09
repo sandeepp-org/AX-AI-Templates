@@ -1,70 +1,45 @@
 {
   "name": "@canopy/chroma",
-  "version": "0.0.14",
-  "description": "Shared tailwind config, and styles for Canopy Design Systems",
-  "license": "MIT",
-  "author": "Canopy",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aatmix/aatmix-packages.git",
-    "directory": "chroma"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "keywords": [
-    "design-system",
-    "scss",
-    "@canopy"
-  ],
+  "version": "0.1.0",
+  "private": true,
+  "description": "Design tokens: themes, the Tailwind preset and the theme provider",
+  "type": "module",
   "files": [
     "dist",
-    "src"
+    "src",
+    "assets"
   ],
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js"
     },
-    "./theme-provider": {
-      "types": "./dist/themes/index.d.ts",
-      "import": "./dist/themes/index.mjs",
-      "require": "./dist/themes/index.js"
-    },
-    "./css/*": "./dist/css/*",
-    "./preset": "./src/tailwind.css",
+    "./tailwind": "./src/tailwind.css",
     "./themes": "./dist/css/themes/all.css",
-    "./themes/blue": "./dist/css/themes/blue/light.css",
     "./themes/blue/light": "./dist/css/themes/blue/light.css",
     "./themes/blue/dark": "./dist/css/themes/blue/dark.css",
     "./scss": "./src/index.scss",
-    "./scss/*": "./src/*",
-    "./tailwind": "./src/tailwind.css",
-    "./rtl": "./dist/css/rtl.css"
+    "./assets/*": "./assets/*"
   },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "clean": "rm -rf dist"
-  },
-  "devDependencies": {
-    "@types/node": "^24.10.2",
-    "@types/react": "^19.2.0",
-    "next": "^16.0.0",
-    "sass": "^1.77.0",
-    "tsup": "^8.0.0",
-    "typescript": "^5.0.0"
-  },
-  "dependencies": {
-    "tailwindcss-rtl": "^0.9.0"
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo"
   },
   "peerDependencies": {
-    "next": ">=14",
-    "react": ">=17",
+    "react": "^19.0.0",
     "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "react": "^19.3.1",
+    "sass": "^1.108.1",
+    "tsup": "^9.0.0",
+    "typescript": "^6.0.3"
   }
 }

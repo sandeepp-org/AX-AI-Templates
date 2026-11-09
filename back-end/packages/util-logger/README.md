@@ -203,7 +203,3 @@ docker run -d --name mongodb -p 27017:27017 mongo:7
 
 # Then: MONGODB_URI=mongodb://localhost:27017/test pnpm test:integration
 ```
-
-## Monorepo template sync
-
-From the repository root, use `pnpm template:ensure`, `template:add`, `template:update`, or `template:pr` (see root `package.json`) to pull packages from upstream or open a PR with `packages/*` changes.

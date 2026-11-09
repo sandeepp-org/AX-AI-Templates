@@ -7,6 +7,9 @@ import { Logger as LoggerImpl } from "../../../util-logger/src/logger.js";
 import { registerRoutes } from "./register-routes.util.js";
 import { createRequestIdMiddleware } from "./request-id.util.js";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- a response body is asserted field by field
+type JsonBody = any;
+
 describe("registerRoutes", () => {
   const servers: Server[] = [];
   const loggers: LoggerType[] = [];
@@ -60,7 +63,7 @@ describe("registerRoutes", () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),
     });
-    const body = await res.json();
+    const body = (await res.json()) as JsonBody;
 
     expect(res.status).toBe(200);
     expect(body.data).toEqual(responsePayload);
@@ -82,7 +85,7 @@ describe("registerRoutes", () => {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
-    const body = await res.json();
+    const body = (await res.json()) as JsonBody;
 
     expect(res.status).toBe(200);
     expect(body.data).toEqual(responsePayload);
@@ -105,7 +108,7 @@ describe("registerRoutes", () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: "test" }),
     });
-    const body = await res.json();
+    const body = (await res.json()) as JsonBody;
 
     expect(res.status).toBe(200);
     expect(body.data).toEqual(responsePayload);
@@ -128,7 +131,7 @@ describe("registerRoutes", () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name: "test" }),
     });
-    const body = await res.json();
+    const body = (await res.json()) as JsonBody;
 
     expect(res.status).toBe(200);
     expect(body.data).toEqual(responsePayload);
@@ -150,7 +153,7 @@ describe("registerRoutes", () => {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
     });
-    const body = await res.json();
+    const body = (await res.json()) as JsonBody;
 
     expect(res.status).toBe(200);
     expect(body.data).toEqual(responsePayload);
@@ -227,7 +230,7 @@ describe("registerRoutes", () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),
     });
-    const body = await res.json();
+    const body = (await res.json()) as JsonBody;
 
     expect(res.status).toBe(500);
     expect(body.data).toBeNull();
@@ -251,7 +254,7 @@ describe("registerRoutes", () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),
     });
-    const body = await res.json();
+    const body = (await res.json()) as JsonBody;
 
     expect(body.error).toBe(errorMsg);
     expect(body.error).not.toBe("[object Object]");

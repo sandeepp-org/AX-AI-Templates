@@ -2,8 +2,14 @@
 // Aatmix Design System - Blue Dark Theme Typography
 // =============================================================================
 
-$font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-$font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace;
+$font-sans:
+  "Inter",
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  sans-serif;
+$font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
 
 @mixin typography {
   --font-sans: #{$font-sans};

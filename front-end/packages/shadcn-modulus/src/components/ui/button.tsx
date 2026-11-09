@@ -1,9 +1,9 @@
-import * as React from "react"
-import { Button as CoreButton, cn } from "@canopy/shadcn-core"
+import * as React from "react";
+import { Button as CoreButton, cn } from "@canopy/shadcn-core";
 
 type ButtonProps = React.ComponentProps<typeof CoreButton> & {
-  size?: React.ComponentProps<typeof CoreButton>["size"] | "sm-loose"
-}
+  size?: React.ComponentProps<typeof CoreButton>["size"] | "sm-loose";
+};
 
 export function Button({
   className,
@@ -20,5 +20,5 @@ export function Button({
       className={cn(className)}
       {...props}
     />
-  )
+  );
 }

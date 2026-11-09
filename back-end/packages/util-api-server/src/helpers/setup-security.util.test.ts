@@ -4,6 +4,9 @@ import express from "express";
 
 import { setupSecurity } from "./setup-security.util.js";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- a response body is asserted field by field
+type JsonBody = any;
+
 const createTestApp = (
   options?: Parameters<typeof setupSecurity>[1]
 ): express.Application => {
@@ -89,7 +92,7 @@ describe("setupSecurity", () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
-    const data = await res.json();
+    const data = (await res.json()) as JsonBody;
 
     expect(data.body).toEqual(payload);
   });

@@ -24,16 +24,15 @@
     "clean": "rm -rf dist *.tsbuildinfo"
   },
   "dependencies": {
-    "redis": "^5.11.0"
+    "redis": "^6.3.1"
   },
   "devDependencies": {
-    "@types/node": "^25.0.0",
-    "jest": "^30.2.0",
-    "ts-jest": "^29.4.0",
-    "typescript": "^5.9.0"
+    "@types/node": "^26.6.6",
+    "jest": "^30.5.2",
+    "ts-jest": "^29.4.15",
+    "typescript": "^6.0.3"
   },
   "engines": {
     "node": ">=22.0.0"
-  },
-  "peerDependencies": {}
+  }
 }

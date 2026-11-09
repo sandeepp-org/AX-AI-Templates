@@ -8,7 +8,7 @@ const appEnv = path.join(__dirname, "app", ".env");
 const jestPackageEnv = process.env.JEST_PACKAGE_ENV;
 
 /**
- * Package-scoped tests (e.g. `pnpm test` in `packages/util-agentic-memory`):
+ * Package-scoped tests (e.g. `pnpm test` in `packages/util-redis`):
  * load **only** `packages/<JEST_PACKAGE_ENV>/.env` — not `app/.env` or other packages.
  */
 if (jestPackageEnv && fs.existsSync(packagesDir)) {

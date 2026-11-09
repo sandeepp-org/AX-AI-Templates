@@ -1,42 +1,32 @@
 {
   "name": "@canopy/frontend-utils",
-  "version": "1.0.0",
-  "description": "Frontend utilities with REST and gRPC client support",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Front-end utilities: the REST client and upload helpers",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    "./package.json": "./package.json",
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
-    },
-    "./grpc": {
-      "types": "./dist/grpc/index.d.ts",
-      "import": "./dist/grpc/index.js"
     }
   },
   "scripts": {
-    "clean": "rm -rf dist src/grpc/generated",
-    "proto:generate": "tsx ./scripts/generate-grpc-types.ts",
     "build": "tsup",
-    "dev": "tsup --watch"
+    "dev": "tsup --watch",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo"
   },
   "dependencies": {
-    "@grpc/grpc-js": "^1.13.4",
-    "@grpc/proto-loader": "^0.7.15",
-    "axios": "^1.13.2",
-    "google-protobuf": "^4.0.1"
+    "axios": "^1.21.0"
   },
   "devDependencies": {
-    "@types/google-protobuf": "^3.15.12",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "grpc-tools": "^1.13.1",
-    "ts-protoc-gen": "^0.15.0",
-    "tsup": "^8.0.0",
-    "tsx": "^4.21.0",
-    "typescript": "^5.3.3"
+    "tsup": "^9.0.0",
+    "typescript": "^6.0.3"
   }
 }

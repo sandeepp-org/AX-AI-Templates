@@ -7,6 +7,9 @@ import { ValidationError } from "@util/error-normalizer";
 import { ApiServer } from "./api-server.js";
 import { HTTP_STATUS_CODES, HEALTH_ENDPOINT_PATH } from "./constants.js";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- a response body is asserted field by field
+type JsonBody = any;
+
 describe("ApiServer", () => {
   let instance: ApiServer | null = null;
   const loggers: LoggerType[] = [];
@@ -57,7 +60,7 @@ describe("ApiServer", () => {
 
     const baseUrl = `http://localhost:${instance.port}`;
     const res = await fetch(`${baseUrl}${HEALTH_ENDPOINT_PATH}`);
-    const body = await res.json();
+    const body = (await res.json()) as JsonBody;
 
     expect(res.status).toBe(HTTP_STATUS_CODES.OK);
     expect(body.data.status).toBe("ok");
@@ -83,7 +86,7 @@ describe("ApiServer", () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),
     });
-    const body = await res.json();
+    const body = (await res.json()) as JsonBody;
 
     expect(res.status).toBe(HTTP_STATUS_CODES.OK);
     expect(body.data).toEqual(responseData);
@@ -151,7 +154,7 @@ describe("ApiServer", () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),
     });
-    const body = await res.json();
+    const body = (await res.json()) as JsonBody;
 
     expect(res.status).toBe(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR);
     expect(body.data).toBeNull();
@@ -182,7 +185,7 @@ describe("ApiServer", () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),
     });
-    const body = await res.json();
+    const body = (await res.json()) as JsonBody;
 
     expect(res.status).toBe(HTTP_STATUS_CODES.BAD_REQUEST);
     expect(body.data).toBeNull();
@@ -204,7 +207,7 @@ describe("ApiServer", () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),
     });
-    const body = await res.json();
+    const body = (await res.json()) as JsonBody;
 
     expect(res.status).toBe(HTTP_STATUS_CODES.NOT_FOUND);
     expect(body.data).toBeNull();
@@ -316,7 +319,7 @@ describe("ApiServer", () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({}),
     });
-    const body = await res.json();
+    const body = (await res.json()) as JsonBody;
 
     expect(res.status).toBe(HTTP_STATUS_CODES.OK);
     expect(body.data).toEqual({ pong: true });
@@ -507,10 +510,10 @@ describe("ApiServer", () => {
     const baseUrl = `http://localhost:${instance.port}`;
 
     const v1Res = await fetch(`${baseUrl}/api/v1/items`);
-    const v1Body = await v1Res.json();
+    const v1Body = (await v1Res.json()) as JsonBody;
 
     const v2Res = await fetch(`${baseUrl}/api/v2/items`);
-    const v2Body = await v2Res.json();
+    const v2Body = (await v2Res.json()) as JsonBody;
 
     expect(v1Res.status).toBe(HTTP_STATUS_CODES.OK);
     expect(v1Body.data).toEqual({ version: 1 });

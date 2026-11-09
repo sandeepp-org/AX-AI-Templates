@@ -1,3 +1,0 @@
-{
-  "mandatoryPackages": ["util-api-server", "util-jwt-tokens", "util-logger"]
-}

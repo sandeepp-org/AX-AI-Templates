@@ -1,13 +1,16 @@
 import { Logger } from "@util/logger";
 
-let logger: Logger;
+/** The name every log line of this app carries. */
+const LOG_CONTEXT = "app";
 
-const initLogger = async (): Promise<Logger> => {
-  logger = await Logger.create({
-    level: "info",
+/** Creates the app's logger: one console transport at the given level. */
+const createLogger = (
+  level: NonNullable<Parameters<typeof Logger.create>[0]>["level"]
+): Promise<Logger> =>
+  Logger.create({
+    level,
+    context: LOG_CONTEXT,
     transports: [{ type: "console", format: "simple" }],
   });
-  return logger;
-};
 
-export { logger, initLogger };
+export { createLogger };

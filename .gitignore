@@ -1,16 +1,32 @@
-# Dependencies & build (monorepo / scaffold-wide)
+# Dependencies
 node_modules/
-dist/
-.turbo/
-coverage/
-*.tsbuildinfo
-.DS_Store
-*.log
 
-# Environment files (secrets) — tracked templates use *.example
-.env*
+# Build output
+dist/
+build/
+coverage/
+.turbo/
+*.tsbuildinfo
+
+# Environment files: only the *.example templates are tracked
+.env
+.env.*
 !.env.example
 !.env.*.example
-!**/.env.example
-!**/.env.*.example
-!.envrc
+
+# Logs
+*.log
+logs/
+
+# Operating system and editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+
+# Certificates and keys
+*.pem
+*.key
+*.crt
