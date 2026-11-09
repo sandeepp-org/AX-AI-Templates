@@ -1,0 +1,13 @@
+packages:
+  - "app"
+  - "packages/*"
+
+# Dependencies allowed to run their install scripts (pnpm 10 blocks them by default).
+onlyBuiltDependencies:
+  - argon2
+  - esbuild
+
+# Install scripts these packages do not need here.
+ignoredBuiltDependencies:
+  - "@parcel/watcher"
+  - "@scarf/scarf"

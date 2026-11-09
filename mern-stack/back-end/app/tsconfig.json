@@ -1,0 +1,18 @@
+{
+  "extends": "../tsconfig.base.json",
+  "references": [
+    {
+      "path": "../packages/util-logger"
+    },
+    {
+      "path": "../packages/util-api-server"
+    }
+  ],
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "composite": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["**/*.test.ts", "node_modules", "dist"]
+}

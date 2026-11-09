@@ -1,0 +1,35 @@
+{
+  "name": "app",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc --build",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "test": "jest --config ../jest.config.cjs --testPathPatterns=\"^app/\" --forceExit",
+    "test:watch": "jest --config ../jest.config.cjs --testPathPatterns=\"^app/\" --watch",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist .turbo *.tsbuildinfo"
+  },
+  "dependencies": {
+    "@util/api-server": "workspace:*",
+    "@util/logger": "workspace:*",
+    "dotenv": "^18.0.10"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/supertest": "^7.2.1",
+    "jest": "^30.5.2",
+    "supertest": "^7.3.2",
+    "ts-jest": "^29.4.15",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3"
+  },
+  "description": "MERN Stack template API: one health endpoint, ready to grow by module",
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

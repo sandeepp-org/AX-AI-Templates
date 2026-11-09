@@ -1,0 +1,17 @@
+// =============================================================================
+// Canopy Design System - SCSS Entry Point
+// Themes are the single source of truth for all design tokens
+// =============================================================================
+//
+// Usage:
+//   @use '@canopy/chroma/scss' as sf;
+//
+// Each theme defines:
+//   - Colors (--primary, --background, --destructive, etc.)
+//   - Spacing (--spacing-xs to --spacing-4xl)
+//   - Sizing (--radius, --shadow, --font-size, --button-height)
+//
+// =============================================================================
+
+// Theme Definitions (includes all tokens: colors, spacing, sizing)
+@forward "themes/index";

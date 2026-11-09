@@ -1,0 +1,38 @@
+{
+  "name": "mern-stack-back-end",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "turbo build",
+    "start": "pnpm --filter app start",
+    "dev": "turbo build --filter=app^... && pnpm --filter app dev",
+    "test": "turbo test",
+    "test:watch": "jest --config jest.config.cjs --watch",
+    "lint": "turbo lint",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "turbo typecheck",
+    "clean": "turbo clean && rm -rf node_modules .turbo"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.6.6",
+    "@types/supertest": "^7.2.1",
+    "dotenv": "^18.0.10",
+    "eslint": "^10.14.0",
+    "jest": "^30.5.2",
+    "prettier": "^3.9.10",
+    "supertest": "^7.3.2",
+    "ts-jest": "^29.4.15",
+    "turbo": "^2.11.10",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1"
+  },
+  "packageManager": "pnpm@10.31.0",
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

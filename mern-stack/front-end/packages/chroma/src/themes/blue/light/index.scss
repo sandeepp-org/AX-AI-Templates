@@ -1,0 +1,16 @@
+// =============================================================================
+// Aatmix Design System - Blue Light Theme
+// Applied via [data-theme="blue"]
+// =============================================================================
+
+@use "colors" as colors;
+@use "typography" as typography;
+@use "spacing" as spacing;
+@use "sizing" as sizing;
+
+[data-theme="blue"] {
+  @include colors.colors;
+  @include typography.typography;
+  @include spacing.spacing;
+  @include sizing.sizing;
+}

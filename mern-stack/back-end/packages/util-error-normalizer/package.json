@@ -1,0 +1,29 @@
+{
+  "name": "@util/error-normalizer",
+  "version": "0.1.0",
+  "description": "Framework-agnostic error modeling and normalization utilities for Nexus apps and services",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --build",
+    "dev": "tsc --watch",
+    "test": "jest --config ../../jest.config.cjs --testPathPatterns=\"packages/util-error-normalizer\" --forceExit",
+    "test:watch": "jest --config ../../jest.config.cjs --testPathPatterns=\"packages/util-error-normalizer\" --watch",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist *.tsbuildinfo"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "jest": "^30.5.2",
+    "ts-jest": "^29.4.15",
+    "typescript": "^6.0.3"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "@util/jwt-tokens",
+  "version": "0.1.0",
+  "description": "JWT sign/verify, password hashing, token rotation, and role-based access middleware primitives",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "dev": "tsc --watch",
+    "test": "jest --config ../../jest.config.cjs --testPathPatterns=\"packages/util-jwt-tokens\" --forceExit",
+    "test:watch": "jest --config ../../jest.config.cjs --testPathPatterns=\"packages/util-jwt-tokens\" --watch",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "argon2": "^0.45.2",
+    "jose": "^6.2.16"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "jest": "^30.5.2",
+    "ts-jest": "^29.4.15",
+    "typescript": "^6.0.3"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
